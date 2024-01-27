@@ -1,0 +1,6 @@
+npm init 
+npm i typescript --save-dev
+npm install @types/node --save-dev
+npx tsc --init --rootDir src --outDir build \ --esModuleInterop --resolvejsonModule --lib es6 \ --module commonjs --allowjs true --noImplicitAny true
+npx tsc
+npm install --save-dev ts-node nodemonc
