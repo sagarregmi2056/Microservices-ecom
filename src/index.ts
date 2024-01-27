@@ -86,6 +86,9 @@ process.on(
   }
 );
 
+import { ConnectOptions, connect } from "mongoose";
+import { MONGO_URI } from "./config/mongodb";
+const connectionOptions: ConnectOptions = {};
 app.use((req, res, next) => {
   const response = {
     status: false,
@@ -93,12 +96,17 @@ app.use((req, res, next) => {
   };
 });
 
-if (LAMBDA == "false") {
-  app.listen(SERVER_PORT, () => {
-    console.log(
-      `server started at port ${HOST} ${SERVER_PORT} of ${NODE_ENVIRONMENT}} mode`
-    );
-  });
-} else {
-  module.exports = app;
+async function run() {
+  if (LAMBDA == "false") {
+    app.listen(SERVER_PORT, () => {
+      connect(MONGO_URI, connectionOptions);
+      console.log(
+        `server started at port ${HOST} ${SERVER_PORT} of ${NODE_ENVIRONMENT}} mode`
+      );
+    });
+  } else {
+    module.exports = app;
+  }
 }
+
+run();
