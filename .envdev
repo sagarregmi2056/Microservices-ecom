@@ -1,0 +1,4 @@
+
+SERVER_PORT = 4000
+HOST = localhost
+NODE_ENV = development
