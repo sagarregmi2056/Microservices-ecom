@@ -4,3 +4,16 @@ HOST = localhost
 NODE_ENV = development
 
 MONGODB_URI= 'mongodb://localhost:27017/ecommercemicro'
+
+PG_DATABASE=ecommerce
+PG_USER=postgres 
+PG_PASSWORD=sagar123
+
+PG_HOST=localhost
+
+PG_PORT=5432
+
+
+
+ACCESS_TOKEN_SECRET = f3192c826e43250bcf4ea79ed29856e2c7c3c3e2b06f2adf09d3858713e53930
+JWT_TOKEN_EXPIRE = '90d'

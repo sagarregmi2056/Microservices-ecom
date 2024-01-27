@@ -29,9 +29,19 @@ import { error } from "console";
 const app = express();
 
 import Database from "./config/mongodb";
+import { db } from "./config/mysqldb";
 
 const database = new Database();
 database.connect();
+
+db.authenticate()
+  .then(() => {
+    console.log("Nice postgresql db is connected successfully");
+  })
+  .catch((err: any) => {
+    console.error(err);
+  });
+
 app.use(
   cors({
     origin: true,

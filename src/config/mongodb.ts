@@ -52,7 +52,7 @@ class Database {
       return this.conn;
     } catch (e) {
       console.log((e as Error).message);
-      throw e;
+      return false;
     }
   }
 }
