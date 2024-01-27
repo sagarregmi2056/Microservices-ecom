@@ -2,3 +2,5 @@
 SERVER_PORT = 4000
 HOST = localhost
 NODE_ENV = development
+
+MONGODB_URI= 'mongodb://localhost:27017/ecommercemicro'

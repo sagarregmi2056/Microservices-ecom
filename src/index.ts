@@ -27,6 +27,11 @@ import bodyParser from "body-parser";
 import { error } from "console";
 
 const app = express();
+
+import Database from "./config/mongodb";
+
+const database = new Database();
+database.connect();
 app.use(
   cors({
     origin: true,
@@ -86,9 +91,6 @@ process.on(
   }
 );
 
-import { ConnectOptions, connect } from "mongoose";
-import { MONGO_URI } from "./config/mongodb";
-const connectionOptions: ConnectOptions = {};
 app.use((req, res, next) => {
   const response = {
     status: false,
@@ -96,17 +98,12 @@ app.use((req, res, next) => {
   };
 });
 
-async function run() {
-  if (LAMBDA == "false") {
-    app.listen(SERVER_PORT, () => {
-      connect(MONGO_URI, connectionOptions);
-      console.log(
-        `server started at port ${HOST} ${SERVER_PORT} of ${NODE_ENVIRONMENT}} mode`
-      );
-    });
-  } else {
-    module.exports = app;
-  }
+if (LAMBDA == "false") {
+  app.listen(SERVER_PORT, () => {
+    console.log(
+      `server started at port ${HOST} ${SERVER_PORT} of ${NODE_ENVIRONMENT} mode`
+    );
+  });
+} else {
+  module.exports = app;
 }
-
-run();
