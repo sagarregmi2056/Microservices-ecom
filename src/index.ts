@@ -29,11 +29,11 @@ import { error } from "console";
 const app = express();
 
 import Database from "./config/mongodb";
-import { db } from "./config/mysqldb";
-
+import { db } from "./config/postgresqldb";
+// for mon godb connectivity
 const database = new Database();
 database.connect();
-
+// for postgresql connectivity
 db.authenticate()
   .then(() => {
     console.log("Nice postgresql db is connected successfully");

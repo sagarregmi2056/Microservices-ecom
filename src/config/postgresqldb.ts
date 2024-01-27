@@ -36,7 +36,7 @@ class Database {
           },
         }
       );
-      // console.log(PG_USER, PG_PASSWORD, PG_HOST, PG_PORT, PG_DATABASE);
+      // console.log(PG_USER, PG_PASSWORD, PG_HOST, PG_PORT, PG_DATABASE);jsonwebtoken
 
       return this.con;
     } catch (err) {
