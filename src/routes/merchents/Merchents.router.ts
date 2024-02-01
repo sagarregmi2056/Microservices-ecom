@@ -1,6 +1,6 @@
 import express from "express";
-import { merchantController } from "../../controller/merchant/merchantController";
-import { merchantAuth } from "../../middlware/auth/merchantAuth";
+import { merchantController } from "../../controller/merchents/Merchents.Controller";
+
 export const merchantRouter = express.Router();
 
 merchantRouter.post(
@@ -13,21 +13,21 @@ merchantRouter.post(
   }
 );
 
-merchantRouter.post("/login", (req: express.Request, res: express.Response) => {
-  merchantController.login(req, res);
-});
+// merchantRouter.post("/login", (req: express.Request, res: express.Response) => {
+//   merchantController.login(req, res);
+// });
 
-merchantRouter.post(
-  "/otp-verify",
-  (req: express.Request, res: express.Response) => {
-    merchantController.OTPVerify(req, res);
-  }
-);
+// merchantRouter.post(
+//   "/otp-verify",
+//   (req: express.Request, res: express.Response) => {
+//     merchantController.OTPVerify(req, res);
+//   }
+// );
 
-merchantRouter.get(
-  "/list",
-  merchantAuth,
-  (req: express.Request, res: express.Response) => {
-    merchantController.merchantList(req, res);
-  }
-);
+// merchantRouter.get(
+//   "/list",
+//   merchantAuth,
+//   (req: express.Request, res: express.Response) => {
+//     merchantController.merchantList(req, res);
+//   }
+// );
